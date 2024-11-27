@@ -9,7 +9,7 @@
 
 ## 📚 연구 주제
 
-교차 모달 연합 학습 : 멀티 모달 데이터 통합 및 변환을 통한 이질성 격차 축소 접근법
+**Cross-modal Federated Learning: Approaches to Reduce the Heterogeneity Gap through Multimodal Data Integration and Translation** (교차 모달 연합 학습 : 멀티 모달 데이터 통합 및 변환을 통한 이질성 격차 축소 접근법)
 
 ## 📁 폴더 구조
 

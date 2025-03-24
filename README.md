@@ -9,7 +9,9 @@
 
 ## 📚 연구 주제
 
-**Cross-modal Federated Learning: Approaches to Reduce the Heterogeneity Gap through Multimodal Data Integration and Translation** (교차 모달 연합 학습 : 멀티 모달 데이터 통합 및 변환을 통한 이질성 격차 축소 접근법)
+**Linceiver IO: Reducing Computational Cost in
+Federated Learning with Adaptive Low-Rank
+Perceiver IO** (Linceiver IO: 적응형 저차원 Perciever IO를 활용한 연합 학습의 연산 비용 절감)
 
 ## 📁 폴더 구조
 

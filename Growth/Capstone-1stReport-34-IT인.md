@@ -33,9 +33,9 @@
 | 항목 | 내용 |
 |:---  |---  |
 | (1) 요구사항 정의 |   **1. 경량화** <br> - Linceiver IO는 Perceiver IO에 비해 빠른 학습 속도를 보이고, 더 적은 용량의 모델 크기를 갖춰야 한다. <br> - Attention 연산의 복잡도를 기존 $O(N^2)$에서 $O(kN)$으로 줄이기 위한 Low-Rank Projection 기반의 구조(Linformer 방식)를 적용해야 한다. <br> - 모델 파라미터 수는 가능한 한 최소화하여 연합학습 클라이언트에서 동작할 수 있도록 경량화를 달성해야 한다. <br><br> **2. 범용성** <br> - Linceiver IO는 다양한 크기의 데이터, 더 나아가 다양한 모달리티 데이터에서 안정적인 학습 효과를 보여야 한다. <br> - Linceiver IO의 projection 차원 k는 학습 과정에서 동적으로 변경 가능하며, 정확도와 학습 속도 및 용량에서 최적의 Trade-off를 만족하는 수치로 설정되어야 한다. <br><br> **3. 연합학습 적용성** <br> - 기존 Perceiver IO가 연합학습에 적용된 사례가 없는 만큼, 본 프로젝트는 Linceiver IO의 구조를 연합학습 시스템에 최적화하여 새롭게 설계해야 한다. <br> - 연합학습 환경에서 Shared Latent Perceiver와 개별 클라이언트의 Perceiver Head로 구성된 하이브리드 구조를 적용해야 한다. <br> - 클라이언트 단은 독립적인 데이터셋을 기반으로 로컬 학습을 수행하며, 중앙 서버는 각 클라이언트로부터 데이터를 수합하지 않고, Shared Latent Perceiver의 가중치를 받아 평균화하는 방식으로 학습을 통합해야 한다. <br> - 학습된 모델은 중앙집중형 학습 모델 대비 유사하거나 더 나은 성능을 달성해야 한다. |
-| (2) 전체 시스템 구성 |  <img src="https://github.com/yeongeunshim/CapstoneDesignProject/blob/main/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0.jpg?raw=true" alt="시스템 구성도" width="480"/> <br><br> **1. User (연구팀원)**: 로컬 PC에서 VS Code로 원격 서버 접속 및 실험 수행 <br> **2. VS Code Remote - SSH**: 서버와 안전한 연결로 실시간 원격 개발 지원 <br> **3. ML/DL 개발환경**: PyTorch 기반, 아나콘다 가상환경으로 통일 <br> **4. GPU 서버**: Ubuntu + PyTorch 환경에서 고성능 GPU로 모델 학습 및 추론 처리 |
+| (2) 전체 시스템 구성 | 전체 시스템은 아래 그림과 같이 구성된다. <br><br> <img src="https://github.com/yeongeunshim/CapstoneDesignProject/blob/main/%EC%8B%9C%EC%8A%A4%ED%85%9C%EA%B5%AC%EC%A1%B0.jpg?raw=true" alt="시스템 구성도" width="480"/> <br><br> 1. **User (연구팀원)** <br> - 개인 PC 또는 노트북에서 VS Code를 실행하고 원격 서버에 접속함 <br> - 서버 내부의 코드 작성, 실행, 디버깅을 수행함 <br><br> 2. **VS Code Remote - SSH** <br> - 사용자의 로컬 VS Code에서 서버에 안전하게 접속하게 해주는 도구 <br> - 코드 수정, 실험 실행 등을 로컬에서 바로 하듯이 원격으로 수행 가능 <br><br> 3. **ML/DL 개발환경** <br> - Python과 PyTorch 기반의 소프트웨어 환경이 구성되어 있음 <br> - 아나콘다 가상환경으로 통일된 패키지 및 라이브러리 버전 유지 <br><br> 4. **GPU 서버 환경** <br> - 실제 연산이 수행되는 장소로, 고성능 GPU가 장착된 서버임 <br> - Ubuntu 리눅스 OS를 기반으로 실행되며, PyTorch에서 GPU를 활용해 모델 학습과 추론을 처리함 |
 | (3) 주요엔진 및 기능 설계 | *프로젝트의 주요 기능 혹은 모듈의 설계내용에 대하여 기술한다 <br> SW 구조 그림에 있는 각 Module의 상세 구현내용을 자세히 기술한다.* |
 | (4) 주요 기능의 구현 | *<주요기능리스트>에 정의된 기능 중 최소 2개 이상에 대한 상세 구현내용을 기술한다.* |
-| (5) 기타 | *기타 사항을 기술*  |
+| (5) 기타 | *기타 사항을 기술* |
 
 <br>
